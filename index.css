@@ -23,8 +23,6 @@ html, body {
  width: 100%;
  z-index: 1;
  text-align:right;
- background-image:url("funky-lines.png");
- background-repeat:repeat;
 }
 
 .sidenav a {
