@@ -19,7 +19,6 @@ html, body {
     -1px  0   0 white;
 }
 .sidenav {
- background-image:url("background.png");
  height: 243px;
  width: 100%;
  z-index: 1;
