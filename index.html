@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
 	<title>Erik "edit" Slatter</title>
+	<script>
+	</script>
 </head>
 <body>
 <div class="sidenav">
@@ -17,11 +19,14 @@
 </div>
 
 <div id="beginning">
-    <h1 id="intro">The personal website of Erik Slatter</h1>
+	
+    <h1 id="intro">The personal website of <span id="name">Erik <img src="edit.png" id="edit">Slatter</span></h1>
     <p>Hi. I'm a 17-year-old human that makes things. Please enjoy my portfolio of games, music, websites, logos, browser extensions and other creative paraphernalia.</p>
 </div>
 
 <hr>
+
+<input type="text" id="searchbox" onkeyup="searchProjects()" placeholder="Search for a project by name, involved skill, tool, or anything else you can think of...">
 
 <div class="projects">
 <ul id ="projectlist">
@@ -29,9 +34,9 @@
 	<div class="projectiteminner">
 		<img src="isostealth_thumbnail.png">
 			<div class="projectdesc">
-				<h2>IsoStealth</h2>
-				<h3>Game (PC)</h3>
-				<h3>Unity/C#</h3>
+				<h2 class="searchable">IsoStealth</h2>
+				<h3 class="searchable">Game (PC)</h3>
+				<h3 class="searchable">Unity/C#</h3>
 			</div>
 	</div>
   </li>
@@ -39,9 +44,9 @@
 	<div class="projectiteminner">
 		<img src="onlyalbum_thumbnail.png">
 			<div class="projectdesc">
-				<h2>"My Only Album"</h2>
-				<h3>Music</h3>
-				<h3>Ableton Live</h3>
+				<h2 class="searchable">"My Only Album"</h2>
+				<h3 class="searchable">Music</h3>
+				<h3 class="searchable">Ableton Live</h3>
 			</div>
 	</div>
   </li>
@@ -49,9 +54,9 @@
 	<div class="projectiteminner">
 		<img src="frag_thumbnail.png">
 			<div class="projectdesc">
-				<h2>Frag | Improved ESEA</h2>
-				<h3>Google Chrome & Firefox Extension</h3>
-				<h3>Jquery/Javascript/CSS</h3>
+				<h2 class="searchable">Frag | Improved ESEA</h2>
+				<h3 class="searchable">Google Chrome & Firefox Extension</h3>
+				<h3 class="searchable">Jquery/Javascript/CSS</h3>
 			</div>
 	</div>
   </li>
@@ -59,9 +64,9 @@
 	<div class="projectiteminner">
 		<img src="betterpractice_thumbnail.png">
 			<div class="projectdesc">
-				<h2>Better Practice</h2>
-				<h3>Website</h3>
-				<h3>HTML/CSS/Squarespace</h3>
+				<h2 class="searchable">Better Practice</h2>
+				<h3 class="searchable">Website</h3>
+				<h3 class="searchable">HTML/CSS/Squarespace</h3>
 			</div>
 	</div>
   </li>
@@ -69,14 +74,36 @@
 	<div class="projectiteminner">
 		<img src="mascot_thumbnail.png">
 			<div class="projectdesc">
-				<h2>eSports Mascots</h2>
-				<h3>Logo/Mascot</h3>
-				<h3>Illustrator/Photoshop</h3>
+				<h2 class="searchable">eSports Mascots</h2>
+				<h3 class="searchable">Logo/Mascot</h3>
+				<h3 class="searchable">Illustrator/Photoshop</h3>
 			</div>
 	</div>
   </li>
 </ul>
 </div>
+
+<script>
+function searchProjects() {
+  var input, filter, ul, li, searchable, i;
+  input = document.getElementById("searchbox");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("projectlist");
+  li = ul.getElementsByClassName("projectitem");
+  for (i = 0; i < li.length; i++) {
+    searchable = li[i].getElementsByClassName("searchable")[0];
+	searchable = li[i].getElementsByClassName("searchable")[1];
+	searchable = li[i].getElementsByClassName("searchable")[2];
+    if (searchable) {
+      if (searchable.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 
 </body>
 </html>
