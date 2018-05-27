@@ -6,47 +6,26 @@
     <link rel="stylesheet" type="text/css" href="index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<title>Erik "edit" Slatter</title>
 	<script>
-	    /*
-     * Replace all SVG images with inline SVG
-     */
-        jQuery('img.svg').each(function(){
-            var $img = jQuery(this);
-            var imgID = $img.attr('id');
-            var imgClass = $img.attr('class');
-            var imgURL = $img.attr('src');
 
-            jQuery.get(imgURL, function(data) {
-                // Get the SVG tag, ignore the rest
-                var $svg = jQuery(data).find('svg');
+	$(".projectdesc").hover(function(){
+	console.log("hover detected");
+    //$(this).css("background-color", "yellow");
+    });
 
-                // Add replaced image's ID to the new SVG
-                if(typeof imgID !== 'undefined') {
-                    $svg = $svg.attr('id', imgID);
-                }
-                // Add replaced image's classes to the new SVG
-                if(typeof imgClass !== 'undefined') {
-                    $svg = $svg.attr('class', imgClass+' replaced-svg');
-                }
-
-                // Remove any invalid XML tags as per http://validator.w3.org
-                $svg = $svg.removeAttr('xmlns:a');
-
-                // Replace image with new SVG
-                $img.replaceWith($svg);
-
-            }, 'xml');
-
-        });
 	</script>
+	<title>Erik "edit" Slatter</title>
+
+	<link rel="icon" href="favicon48.ico" type="image/gif" sizes="48x48">
+
 </head>
 <body>
 <div class="sidenav">
     <div id = "sidenav_content">  
     <a href="index.html" class="selected">Projects</a>
-    <a href="/contact">Contact</a>
+    <a href="contact.html">Contact</a>
     </div>
 </div>
 
@@ -109,7 +88,7 @@
 				<h2 class="searchable">eSports Mascots</h2>
 				<h3 class="searchable">Logo/Mascot</h3>
 				<h3 class="searchable">Illustrator/Photoshop</h3>
-				<div class="projecticons"><svg width="60px" height="60px"> <circle cx="30" cy="30" r="25" fill="#222222" /></svg><img src="behance.svg" width="40px" height="40px" class="projecticon"></div>
+				<a class="projecticons" href="https://www.behance.net/erik0907"><i class="fab fa-behance-square"></i></a>
 			</div>
 	</div>
   </li>
