@@ -6,8 +6,40 @@
     <link rel="stylesheet" type="text/css" href="index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<title>Erik "edit" Slatter</title>
 	<script>
+	    /*
+     * Replace all SVG images with inline SVG
+     */
+        jQuery('img.svg').each(function(){
+            var $img = jQuery(this);
+            var imgID = $img.attr('id');
+            var imgClass = $img.attr('class');
+            var imgURL = $img.attr('src');
+
+            jQuery.get(imgURL, function(data) {
+                // Get the SVG tag, ignore the rest
+                var $svg = jQuery(data).find('svg');
+
+                // Add replaced image's ID to the new SVG
+                if(typeof imgID !== 'undefined') {
+                    $svg = $svg.attr('id', imgID);
+                }
+                // Add replaced image's classes to the new SVG
+                if(typeof imgClass !== 'undefined') {
+                    $svg = $svg.attr('class', imgClass+' replaced-svg');
+                }
+
+                // Remove any invalid XML tags as per http://validator.w3.org
+                $svg = $svg.removeAttr('xmlns:a');
+
+                // Replace image with new SVG
+                $img.replaceWith($svg);
+
+            }, 'xml');
+
+        });
 	</script>
 </head>
 <body>
@@ -20,7 +52,7 @@
 
 <div id="beginning">
 	
-    <h1 id="intro">The personal website of <span id="name">Erik <img src="edit.png" id="edit">Slatter</span></h1>
+    <h1 id="intro">The personal website of <span id="name">Erik Slatter</span></h1>
     <p>Hi. I'm a 17-year-old human that makes things. Please enjoy my portfolio of games, music, websites, logos, browser extensions and other creative paraphernalia.</p>
 </div>
 
@@ -77,6 +109,7 @@
 				<h2 class="searchable">eSports Mascots</h2>
 				<h3 class="searchable">Logo/Mascot</h3>
 				<h3 class="searchable">Illustrator/Photoshop</h3>
+				<div class="projecticons"><svg width="60px" height="60px"> <circle cx="30" cy="30" r="25" fill="#222222" /></svg><img src="behance.svg" width="40px" height="40px" class="projecticon"></div>
 			</div>
 	</div>
   </li>

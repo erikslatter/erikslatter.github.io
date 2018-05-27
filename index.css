@@ -1,6 +1,10 @@
 html, body {
  font-family: 'Source Sans Pro', sans-serif;
+ -webkit-font-smoothing: subpixel-antialiased;
  overflow-x:hidden;
+ text-rendering: optimizeLegibility;
+ color: #222222;
+ background-color:#eeeeee;
 }
 
 #intro {
@@ -23,16 +27,16 @@ html, body {
  padding: 18px 18px 18px 16px;
  text-decoration: none;
  font-size: 38px;
- color: #818181;
+ color: #888888;
 
 }
 
 .sidenav a:hover {
- color: black;
+ color: #222222;
 }
 
 .selected {
-	color:black!important;
+	color:#222222!important;
 }
 
 #beginning {
@@ -106,22 +110,6 @@ hr {
 	font-size:20px;
 }
 
-@media screen and (max-width: 1510px) {
-	#edit {
-		display:none;
-	}
-}
-
-
-
-#edit {
-	position:absolute;
-	width:255px;
-	height:255px;
-	margin-top:-230px;
-	margin-left:-100px;
-	
-}
 #searchbox {
   background-image: url('searchicon.png');
   background-position: 10px 10px;
@@ -131,4 +119,14 @@ hr {
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
   margin-bottom: 12px;
+}
+
+.projecticon {
+	position:relative;
+	margin-left:-50px;
+	margin-bottom:10px;
+}
+
+.projecticon fill {
+	color:#eeeeee;
 }
