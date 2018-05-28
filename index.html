@@ -8,14 +8,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
 	<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script>
-
-	$(".projectdesc").hover(function(){
-	console.log("hover detected");
-    //$(this).css("background-color", "yellow");
-    });
-
-	</script>
+	
 	<title>Erik "edit" Slatter</title>
 
 	<link rel="icon" href="favicon48.ico" type="image/gif" sizes="48x48">
@@ -45,9 +38,11 @@
 	<div class="projectiteminner">
 		<img src="isostealth_thumbnail.png">
 			<div class="projectdesc">
+				<p hidden>isostealth game pc unity c# personal</p>
 				<h2 class="searchable">IsoStealth</h2>
 				<h3 class="searchable">Game (PC)</h3>
 				<h3 class="searchable">Unity/C#</h3>
+				<a class="projecticons" href="https://ediit.itch.io/isostealth" target="_blank"><i class="fas fa-gamepad"></i></a>
 			</div>
 	</div>
   </li>
@@ -55,9 +50,12 @@
 	<div class="projectiteminner">
 		<img src="onlyalbum_thumbnail.png">
 			<div class="projectdesc">
+				<p hidden>music my only album spotify ableton live personal</p>
 				<h2 class="searchable">"My Only Album"</h2>
 				<h3 class="searchable">Music</h3>
 				<h3 class="searchable">Ableton Live</h3>
+				<a class="projecticons" href="https://open.spotify.com/album/5eAfHa9NGK2i8i9n4ephXq" target="_blank"><i class="fab fa-spotify"></i></a>
+				<a class="projecticons" href="https://soundcloud.com/ediiitt" target="_blank"><i class="fab fa-soundcloud"></i></a>
 			</div>
 	</div>
   </li>
@@ -65,19 +63,25 @@
 	<div class="projectiteminner">
 		<img src="frag_thumbnail.png">
 			<div class="projectdesc">
+				<p hidden>frag improved esea google chrome firefox extension addon jquery javascript css community personal</p>
 				<h2 class="searchable">Frag | Improved ESEA</h2>
 				<h3 class="searchable">Google Chrome & Firefox Extension</h3>
 				<h3 class="searchable">Jquery/Javascript/CSS</h3>
+				<a class="projecticons" href="https://github.com/ediit/Frag-Chrome-Extension" target="_blank"><i class="fab fa-github-square"></i></a>
+				<a class="projecticons" href="https://chrome.google.com/webstore/detail/frag-improved-esea/bmmkfncdfhjkefffchcghkbaidjpkhac" target="_blank"><i class="fab fa-chrome"></i></a>
+				<a class="projecticons" href="https://addons.mozilla.org/en-US/firefox/addon/frag-improved-esea/" target="_blank"><i class="fab fa-firefox"></i></a>
 			</div>
-	</div>
+	</div>	
   </li>
   <li class="projectitem">
 	<div class="projectiteminner">
 		<img src="betterpractice_thumbnail.png">
 			<div class="projectdesc">
+				<p hidden>better practice website html css squarespace client</p>
 				<h2 class="searchable">Better Practice</h2>
 				<h3 class="searchable">Website</h3>
 				<h3 class="searchable">HTML/CSS/Squarespace</h3>
+				<a class="projecticons" href="https://www.betterpractice.com" target="_blank"><i class="fas fa-link"></i></a>
 			</div>
 	</div>
   </li>
@@ -85,10 +89,11 @@
 	<div class="projectiteminner">
 		<img src="mascot_thumbnail.png">
 			<div class="projectdesc">
+				<p hidden>esports mascot logo illustrator photoshop adobe creative cloud personal</p>
 				<h2 class="searchable">eSports Mascots</h2>
 				<h3 class="searchable">Logo/Mascot</h3>
 				<h3 class="searchable">Illustrator/Photoshop</h3>
-				<a class="projecticons" href="https://www.behance.net/erik0907"><i class="fab fa-behance-square"></i></a>
+				<a class="projecticons" href="https://www.behance.net/erik0907" target="_blank"><i class="fab fa-behance-square"></i></a>
 			</div>
 	</div>
   </li>
@@ -103,9 +108,9 @@ function searchProjects() {
   ul = document.getElementById("projectlist");
   li = ul.getElementsByClassName("projectitem");
   for (i = 0; i < li.length; i++) {
-    searchable = li[i].getElementsByClassName("searchable")[0];
-	searchable = li[i].getElementsByClassName("searchable")[1];
-	searchable = li[i].getElementsByClassName("searchable")[2];
+    searchable = li[i].getElementsByTagName("p")[0];
+	console.log(searchable);
+
     if (searchable) {
       if (searchable.innerHTML.toUpperCase().indexOf(filter) > -1) {
         li[i].style.display = "";
@@ -116,6 +121,19 @@ function searchProjects() {
   }
 }
 </script>
+
+<script>
+	$( ".projectdesc" ).hover(
+  function() {
+    $(this).siblings('img').css('filter', 'brightness(40%)');
+	$(this).children('a').css('color', 'rgba(233,233,233,255)');
+  }, function() {
+    $(this).siblings('img').css('filter', 'brightness(80%)');
+	$(this).children('a').css('color', 'rgba(233,233,233,0)');
+  }
+);
+
+	</script>
 
 </body>
 </html>
