@@ -192,11 +192,9 @@ width:90vw;
 .projectdesc {
 	line-height:40px;
 	vertical-align:middle;
-	display:flex;
-	flex-flow:column;
-	align-items:center;
-	justify-content:center;
-	padding-top:6%;
+	padding-top:25%;
+	padding-bottom:25%;
+	height:160px;
 }
 .projectdesc h2{
 	font-size:24px;
@@ -214,6 +212,47 @@ width:90vw;
 	vertical-align:middle;
 	
 }
+
+@media screen and (max-width:470px) {
+
+	#projectlist {
+  grid-template-columns: repeat(auto-fit, minmax(90vw, 1fr));
+  width:90vw;
+}
+
+.projectitem {
+width:90vw;
+}
+
+.projectiteminner img {
+	width:90vw;
+	height:auto;
+}
+
+.projectdesc {
+	line-height:40px;
+	vertical-align:middle;
+	padding-top:18%;
+	height:160px;
+}
+.projectdesc h2{
+	font-size:24px;
+	margin-top:0px; 
+    margin-bottom:0px;
+	padding-top:0;
+	vertical-align:middle;
+
+
+}
+.projectdesc h3 {
+	font-size:20px;
+	margin-top:0px; 
+    margin-bottom:0px;
+	vertical-align:middle;
+	
+}
+
+
 
 }
 
