@@ -78,11 +78,6 @@ hr {
   transition:.1s;
 
 }
-.projectitem img {
-	/*filter:brightness(80%);*/
-	
-}
-
 
 
 .projectdesc {
@@ -148,7 +143,7 @@ svg {
 }
 
 #beginningcontact {
- font-size: 28px; /* Increased text to enable scrolling */
+ font-size: 28px;
  padding: 0px 10px;
     transition: margin-left 0.4s;
     transition-timing-function: cubic-bezier(.17,.67,.83,.67);
