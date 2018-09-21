@@ -207,12 +207,19 @@ svg {
 
 }
 
+@media screen and (max-width:1000px) {
+	#coffeebreak {
+		display:none;
+	}
+}
 @media screen and (max-width:570px) {
+
+	
 
 	#projectlist {
   grid-template-columns: repeat(auto-fit, minmax(90vw, 1fr));
   width:90vw;
-}
+	}
 
 .projectitem {
 width:90vw;
