@@ -4,12 +4,50 @@ html, body {
  overflow-x:hidden;
  text-rendering: optimizeLegibility;
  color: #222222;
- background-color:#eeeeee;
+ background-color:white;
 }
 
 a {
 	color: #008bd0;
 	text-decoration:none;
+}
+
+@keyframes coffeebreakalert {
+	0% {top:-1000px;}
+	100% {top: -50px;}
+}
+
+#cbclogo {
+	width:130px;
+	height:auto;
+	position:absolute;
+	margin-top:100px;
+	margin-left:385px;
+	z-index:1;
+}
+
+#coffeebreak {
+	position:fixed;
+	left:50px;
+	top:-50px;
+	z-index:0;
+	animation-name: coffeebreakalert;
+    animation-duration: 0.9s;
+    animation-timing-function: cubic-bezier(0,1.18,.84,.72);
+}
+
+#coffeebreak h1 {
+	font-size:20px;
+	color:white;
+	position:absolute;
+	width:200px;
+	margin-top:70px;
+	margin-left:20px;
+	z-index:1;
+}
+
+#coffeebreak img {
+	position:absolute;
 }
 
 #intro {
@@ -109,7 +147,7 @@ hr {
   background-image: url('searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  background-color:#eeeeee;
+  background-color:white;
   width: 100%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
