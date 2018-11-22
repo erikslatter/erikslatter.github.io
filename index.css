@@ -12,45 +12,6 @@ a {
 	text-decoration:none;
 }
 
-@keyframes coffeebreakalert {
-	0% {top:-1000px;}
-	100% {top: -50px;}
-}
-
-#cbclogo {
-	width:130px;
-	height:auto;
-	position:absolute;
-	margin-top:100px;
-	margin-left:385px;
-	z-index:1;
-}
-
-#coffeebreak {
-	position:fixed;
-	left:50px;
-	top:-50px;
-	z-index:0;
-	animation-name: coffeebreakalert;
-    animation-duration: 0.9s;
-    animation-timing-function: cubic-bezier(0,1.18,.84,.72);
-}
-
-#coffeebreak h1 {
-	font-family: "scheme",sans-serif;
-	font-size:20px;
-	color:white;
-	position:absolute;
-	width:200px;
-	margin-top:70px;
-	margin-left:20px;
-	z-index:1;
-}
-
-#coffeebreak img {
-	position:absolute;
-}
-
 #intro {
   margin-top:-20px;
   margin-left:24px;
