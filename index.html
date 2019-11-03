@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 	<script type="text/javascript">
-		var speed = 1000;
+		var speed = 100;
 		var scroller = 0;
 		var lastUpdate = Date.now();
 		var interval = setInterval(tick,0);
@@ -49,7 +49,7 @@
 				ctx.beginPath();
 				ctx.ellipse(x,y,radius,radius, 0, 0, 2 * Math.PI);
 				ctx.stroke();
-				//ctx.fill();
+				ctx.fill();
 				
 
 				if (radius > 0) {
