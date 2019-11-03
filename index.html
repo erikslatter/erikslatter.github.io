@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 	<script type="text/javascript">
-		var speed = 100;
+		var speed = 10;
 		var scroller = 0;
 		var lastUpdate = Date.now();
 		var interval = setInterval(tick,0);
@@ -36,7 +36,7 @@
 			canvasW = canvas.width;
 			canvasH = canvas.height;
 
-			drawCircle(canvas.width/2,canvas.height/2,450);
+			drawCircle(canvas.width/(Math.random()+.5),canvas.height/(Math.random()+.5),450);
 		}
 
 		function drawCircle(x, y, radius) {
@@ -45,20 +45,37 @@
 
 			if (canvas.getContext) {
 				var ctx = canvas.getContext('2d');
-				ctx.strokeStyle=getRandomColor();
+
+				if (Math.random() > 0.5) {
+				ctx.shadowColor = '#00ddff';
+				ctx.shadowOffsetX = x-y;
+				ctx.shadowOffsetY = y-x;
+				}
+				else {
+				ctx.shadowColor = '#ff2200';
+				ctx.shadowOffsetX = y-x;
+				ctx.shadowOffsetY = x-y;
+				}
+
+				ctx.strokeStyle='white';
+				if (radius > 1)
+					ctx.lineWidth = radius / 10;
+				else
+					ctx.lineWidth= 1;
+
 				ctx.beginPath();
 				ctx.ellipse(x,y,radius,radius, 0, 0, 2 * Math.PI);
 				ctx.stroke();
-				ctx.fill();
+				//ctx.fill();
 				
 
 				if (radius > 0) {
 					function yeet()
 					{
-						window.setTimeout(function(){drawCircle(x + radius / 2, y + radius / 2, radius / 2);}, interval*speed);
-						window.setTimeout(function(){drawCircle(x - radius / 2, y - radius / 2, radius / 2);}, interval*speed * 2);
-						window.setTimeout(function(){drawCircle(x + radius / 2, y - radius / 2, radius / 2);}, interval*speed * 3);
-						window.setTimeout(function(){drawCircle(x - radius / 2, y + radius / 2, radius / 2);}, interval*speed * 4);	
+						window.setTimeout(function(){drawCircle(x + radius*20, y + radius *2, radius / 2);}, interval*speed);
+						window.setTimeout(function(){drawCircle(x - radius *20, y - radius * 2, radius / 2);}, interval*speed * 2);
+						window.setTimeout(function(){drawCircle(x + radius * 2, y - radius * 2, radius / 2);}, interval*speed * 3);
+						window.setTimeout(function(){drawCircle(x - radius * 2, y + radius * 2, radius / 2);}, interval*speed * 4);	
 					}
 
 					window.setTimeout(yeet, interval * speed);
