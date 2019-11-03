@@ -4,11 +4,72 @@
     <meta charset="UTF-8">
     <title>erik slatter 🤠</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<!-- haha hi u should follow me on twitter @erikslatter -->
+
+	<script type="text/javascript">
+		var speed = 1000;
+		var scroller = 0;
+		var lastUpdate = Date.now();
+		var interval = setInterval(tick,0);
+		var value = 1;
+		var alt = true;
+
+		function tick() {
+			var now = Date.now();
+			var dt = now - lastUpdate;
+			lastUpdate = now;
+			scroller += dt;
+		}
+		function getRandomColor() {
+			var letters = '0123456789ABCDEF';
+			var color = '#';
+			for (var i = 0; i < 6; i++) {
+			  color += letters[Math.floor(Math.random() * 16)];
+			}
+			return color;
+		}
+
+		function init()
+		{
+			canvas = document.getElementById("canvas");
+			canvas.width = document.body.clientWidth; //document.width is obsolete
+			canvas.height = document.body.clientHeight; //document.height is obsolete
+			canvasW = canvas.width;
+			canvasH = canvas.height;
+
+			drawCircle(canvas.width/2,canvas.height/2,450);
+		}
+
+		function drawCircle(x, y, radius) {
+			console.log("drawn");
+			var canvas = document.getElementById('canvas');
+
+			if (canvas.getContext) {
+				var ctx = canvas.getContext('2d');
+				ctx.strokeStyle=getRandomColor();
+				ctx.beginPath();
+				ctx.ellipse(x,y,radius,radius, 0, 0, 2 * Math.PI);
+				ctx.stroke();
+				//ctx.fill();
+				
+
+				if (radius > 0.001) {
+					function yeet()
+					{
+						window.setTimeout(function(){drawCircle(x + radius / 2, y + radius / 2, radius / 2);}, interval*speed);
+						window.setTimeout(function(){drawCircle(x - radius / 2, y - radius / 2, radius / 2);}, interval*speed * 2);
+						window.setTimeout(function(){drawCircle(x + radius / 2, y - radius / 2, radius / 2);}, interval*speed * 3);
+						window.setTimeout(function(){drawCircle(x - radius / 2, y + radius / 2, radius / 2);}, interval*speed * 4);	
+					}
+
+					window.setTimeout(yeet, interval * speed);
+				}
+			}
+			
+		}
+  </script>
+
   </head>
-  <body>
-	<div id="dizzy">
-		<h1>i dont really have anything to put here quite yet 🙃</h1>
-	</div>
+  <body onload="init();">
+	<canvas id="canvas" width="250px" height="250px"></canvas>
   </body>
 </html>

@@ -1,5 +1,6 @@
 body {
-	background-color:black;
+	height:100vh;
+	width:100vw;
 }
 #dizzy {
 	animation-name: spin;
@@ -11,7 +12,7 @@ body {
 	margin-bottom:auto;
 	font-size:2em;
 	width:600px;
-	color:white;
+	color:black;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -19,4 +20,8 @@ body {
 @keyframes spin {
 	from {transform:rotate(0deg);}
 	to {transform:rotate(360deg);}
+}
+
+canvas {
+	position:absolute;
 }
